@@ -357,6 +357,16 @@ button:hover {
     }
 }
 
+/* Ad Container Styles */
+.ad-container-horizontal {
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
+}
+
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
     h1 { 
@@ -415,6 +425,11 @@ button:hover {
         width: 100%;
         text-align: center;
         padding: 10px;
+    }
+
+    .ad-container-horizontal {
+        padding: 5px;
+        margin: 10px auto;
     }
 }
 
