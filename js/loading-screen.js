@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
-        window.location.href = './app.html';  // Direct path to app.html, no session storage needed
+        window.location.replace('./app.html');
     }, 7000);
 });
