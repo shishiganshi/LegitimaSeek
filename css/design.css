@@ -356,3 +356,93 @@ button:hover {
         transform: scale(1);
     }
 }
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    h1 { 
+        right: 0;
+        font-size: 2em;
+        display: block;
+    }
+    
+    #p1 { 
+        right: 0;
+        display: block;
+        margin-top: 5px;
+    }
+
+    .search-box {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    input {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    button {
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .interactive-container {
+        flex-direction: column;
+        padding: 10px;
+        margin: 20px auto;
+    }
+
+    .article-card {
+        margin: 10px;
+    }
+
+    .quiz-option {
+        padding: 15px 10px; /* Larger touch target */
+    }
+
+    #sources-list li {
+        margin: 10px;
+    }
+
+    .article-footer {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .read-more {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+}
+
+/* Small phones */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .search-box {
+        width: 95%;
+    }
+
+    input, button {
+        width: 90%;
+    }
+
+    #results, #sources {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .fact-summary-box {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .quiz-container {
+        padding: 15px;
+    }
+}
