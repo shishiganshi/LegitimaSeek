@@ -752,14 +752,6 @@ function updateScore() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const hasSeenLoading = sessionStorage.getItem('hasSeenLoading');
-    
-    if (!hasSeenLoading) {
-        sessionStorage.setItem('hasSeenLoading', 'true');
-        window.location.href = 'loading-screen.html';
-        return;
-    }
-
     // Initialize pre-search trivia
     const preSearchTrivia = document.getElementById('pre-search-trivia');
     if (preSearchTrivia) {
