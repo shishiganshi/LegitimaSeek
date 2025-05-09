@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.loading-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease-in;
+}
+
+.content-wrapper {
+    text-align: center;
+}
+
+.title-container {
+    position: relative;
+    display: inline-block;
+}
+
+.title {
+    font-size: 6rem;
+    margin: 0;
+    letter-spacing: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    position: relative;
+}
+
+.dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    top: -20px;
+    left: 0;
+    box-shadow: 0 0 10px rgba(255,255,255,0.8);
+    animation: jumpingDot 12s ease-in-out infinite;
+}
+
+.description {
+    font-size: 1.5rem;
+    margin: 2rem 0;
+    opacity: 0.8;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.loading-bar, .progress {
+    display: none;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+@keyframes jumpingDot {
+    0% { top: -20px; left: 0; }  /* L */
+    7% { top: -40px; left: 0; }
+    8.33% { top: -20px; left: calc(100% / 11 * 1); }  /* E */
+    
+    15.33% { top: -40px; left: calc(100% / 11 * 1); }
+    16.66% { top: -20px; left: calc(100% / 11 * 2); }  /* G */
+    
+    23.66% { top: -40px; left: calc(100% / 11 * 2); }
+    24.99% { top: -20px; left: calc(100% / 11 * 3); }  /* I */
+    
+    31.99% { top: -40px; left: calc(100% / 11 * 3); }
+    33.32% { top: -20px; left: calc(100% / 11 * 4); }  /* T */
+    
+    40.32% { top: -40px; left: calc(100% / 11 * 4); }
+    41.65% { top: -20px; left: calc(100% / 11 * 5); }  /* I */
+    
+    48.65% { top: -40px; left: calc(100% / 11 * 5); }
+    49.98% { top: -20px; left: calc(100% / 11 * 6); }  /* M */
+    
+    56.98% { top: -40px; left: calc(100% / 11 * 6); }
+    58.31% { top: -20px; left: calc(100% / 11 * 7); }  /* A */
+    
+    65.31% { top: -40px; left: calc(100% / 11 * 7); }
+    66.64% { top: -20px; left: calc(100% / 11 * 8); }  /* S */
+    
+    73.64% { top: -40px; left: calc(100% / 11 * 8); }
+    74.97% { top: -20px; left: calc(100% / 11 * 9); }  /* E */
+    
+    81.97% { top: -40px; left: calc(100% / 11 * 9); }
+    83.3% { top: -20px; left: calc(100% / 11 * 10); }  /* E */
+    
+    90.3% { top: -40px; left: calc(100% / 11 * 10); }
+    91.63% { top: -20px; left: 100%; }  /* K */
+    
+    98.63% { top: -40px; left: 100%; }
+    100% { top: -20px; left: 0; }  /* Back to start */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

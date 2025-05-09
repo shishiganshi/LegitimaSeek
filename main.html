@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="LegitimaSeek Team">
+    <meta name="description" content="LegitimaSeek is a real-time fact-checking system that uses advanced AI algorithms to verify claims and provide reliable information.">
+    <title>LegitimaSeek - Fact Checking System</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+    <header>
+        <h1>LegitimaSeek</h1>
+        <p id="p1">Real-Time Fact Checking System</p>
+    </header>
+    
+    <main>
+        <form id="search-form" onsubmit="event.preventDefault(); searchFact(); return false;">
+            <section class="search-box">
+                <input type="text" id="query" placeholder="Enter a claim to verify...">
+                <button type="button" onclick="searchFact()">Check Fact</button>
+            </section>
+        </form>
+
+        <section id="pre-search-trivia" class="initial-trivia-container">
+            <h3>🤔 While You Think...</h3>
+            <div id="initial-trivia-content"></div>
+        </section>
+
+        <section id="results" class="results-section"></section>
+        
+        <section id="chat-results" class="chat-section">
+        </section>
+
+        <section id="interactive-section" class="interactive-container">
+            <div class="quiz-container">
+                <h3>🎯 Knowledge Check</h3>
+                <div id="quiz-content">
+                    <div id="quiz-score" class="score-display"></div>
+                    <div id="pre-search-quiz"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sources" class="sources-section">
+            <h3>Sources</h3>
+            <ul id="sources-list"></ul>
+        </section>
+    </main>
+    <script src="functionability.js"></script>
+</body>
+</html>
