@@ -787,3 +787,30 @@ button:hover {
         flex-direction: column;
     }
 }
+
+/* ==========================================
+   DEVELOPER ID CARD STYLES
+   ========================================== */
+.dev-id-card {
+    border: var(--border-thick);
+    padding: 1.25rem;
+    background: var(--bg-primary);
+    box-shadow: var(--hard-shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.dev-id-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed var(--grey-dark);
+    padding-bottom: 0.5rem;
+}
+
+.dev-id-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
