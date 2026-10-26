@@ -577,3 +577,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ==========================================
+// DEVELOPER DOSSIER MODAL TOGGLE
+// ==========================================
+function toggleDevModal() {
+    const modal = document.getElementById('dev-modal');
+    if (!modal) return;
+    
+    if (modal.style.display === 'none' || modal.style.display === '') {
+        modal.style.display = 'flex';
+    } else {
+        modal.style.display = 'none';
+    }
+}
+
+// Close modal when clicking outside the card container
+window.addEventListener('click', (e) => {
+    const modal = document.getElementById('dev-modal');
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});

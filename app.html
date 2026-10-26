@@ -36,6 +36,10 @@
             </div>
             <div class="header-actions">
                 <span class="status-pill"><span class="pulse-dot"></span> LIVE FEED</span>
+                <!-- Developer Profile Toggle Button -->
+                <button class="dev-profile-btn" onclick="toggleDevModal()" title="About the Author">
+                    [DEV]
+                </button>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode" title="Invert Terminal Colors">
                     🌓
                 </button>
@@ -143,6 +147,40 @@
             </div>
         </section>
     </main>
+    
+  <!-- ==========================================
+         DEVELOPER & AUTHOR DOSSIER MODAL
+         ========================================== -->
+    <div id="dev-modal" class="dev-modal-overlay" style="display: none;">
+        <div class="dev-modal-card">
+            <div class="dev-modal-header">
+                <span class="mono-tag">[AUTHOR PROFILE // DOSSIER]</span>
+                <button class="dev-close-btn" onclick="toggleDevModal()">[CLOSE X]</button>
+            </div>
+            <div class="dev-modal-body">
+                <h3>ABOUT THE DEVELOPER</h3>
+                <p class="dev-bio">
+                    LegitimaSeek was architected and developed by <strong>Cyrus Garin</strong>. If you want to know about the developer and author, inspect the live repositories, or connect professionally, explore the profiles below.
+                </p>
+                
+                <!-- Profile Action Buttons -->
+                <div class="dev-profile-actions">
+                    <a href="https://github.com/shishiganshi" target="_blank" rel="noopener noreferrer" class="btn-solid">
+                        GITHUB PROFILE ↗
+                    </a>
+                    <a href="https://www.linkedin.com/in/cyrusgarin/" target="_blank" rel="noopener noreferrer" class="btn-solid">
+                        LINKEDIN PROFILE ↗
+                    </a>
+                </div>
+
+                <!-- Live Embedded GitHub Preview Frame -->
+                <div class="dev-iframe-wrapper">
+                    <div class="mono-label" style="margin-bottom: 0.5rem;">// LIVE GITHUB FEED EMBED</div>
+                    <iframe src="https://github.com/shishiganshi" class="dev-github-iframe" title="GitHub Profile Preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ==========================================
          SCRIPTS
