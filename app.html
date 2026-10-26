@@ -4,93 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="author" content="LegitimaSeek Team">
-    <meta name="description" content="LegitimaSeek is a real-time fact-checking system that uses advanced AI algorithms to verify claims and provide reliable information.">
-    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE">
-    <meta name="google-adsense-account" content="ca-pub-4319521186601086">
-    <title>LegitimaSeek - Fact Checking System</title>
+    <title>LegitimaSeek // Intelligence & Fact Verification</title>
     <link rel="stylesheet" href="./css/design.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4319521186601086" crossorigin="anonymous"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4319521186601086" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <h1>LegitimaSeek</h1>
-        <p id="p1">Real-Time Fact Checking System</p>
+    <!-- ==========================================
+         LIVE SYSTEM & MARKET TICKER BAR
+         ========================================== -->
+    <div class="system-ticker">
+        <div class="ticker-content" id="live-ticker">
+            <span>[SYS: ONLINE]</span>
+            <span>ENGINE: HYBRID AI + REAL-TIME PARSER</span>
+            <span id="ticker-btc">BTC/USD: LOADING...</span>
+            <span id="ticker-eth">ETH/USD: LOADING...</span>
+            <span id="ticker-php">USD/PHP: ~₱57.50</span>
+            <span>MODE: VERIFICATION TERMINAL v2.4</span>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         TOP NAVIGATION & HEADER
+         ========================================== -->
+    <header class="top-header">
+        <div class="header-content">
+            <div class="brand">
+                <div class="brand-badge">SYS // 00</div>
+                <div>
+                    <h1>LegitimaSeek<span class="cursor-blink">_</span></h1>
+                    <p>Real-Time Fact Checking & Intelligence Index</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <span class="status-pill"><span class="pulse-dot"></span> LIVE FEED</span>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode" title="Invert Terminal Colors">
+                    🌓
+                </button>
+            </div>
+        </div>
     </header>
     
     <main>
-        <form id="search-form" onsubmit="event.preventDefault(); searchFact(); return false;">
-            <section class="search-box">
-                <input type="text" id="query" placeholder="Enter a claim to verify...">
-                <button type="button" onclick="searchFact()">Check Fact</button>
-            </section>
-        </form>
-
-        <!-- Top Ad Container -->
-        <div class="ad-container-horizontal">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-4319521186601086"
-                 data-ad-slot="ADD_YOUR_AD_SLOT_HERE"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <!-- Ad Container -->
-        <div class="ad-container-horizontal">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="YOUR-CLIENT-ID"
-                 data-ad-slot="YOUR-AD-SLOT"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <section id="pre-search-trivia" class="initial-trivia-container">
-            <h3>🤔 While You Think...</h3>
-            <div id="initial-trivia-content"></div>
-        </section>
-
-        <section id="results" class="results-section"></section>
-        
-        <section id="chat-results" class="chat-section">
-        </section>
-
-        <section id="interactive-section" class="interactive-container">
-            <div class="quiz-container">
-                <h3>🎯 Knowledge Check</h3>
-                <div id="quiz-content">
-                    <div id="quiz-score" class="score-display"></div>
-                    <div id="pre-search-quiz"></div>
+        <!-- ==========================================
+             SEARCH ENGINE SECTION
+             ========================================== -->
+        <section class="search-section">
+            <div class="dossier-label">[01 // INPUT CLAIM OR FINANCIAL QUERY]</div>
+            <form id="search-form" onsubmit="event.preventDefault(); searchFact(); return false;">
+                <div class="search-box">
+                    <input type="text" id="query" placeholder="Verify a claim, hoax, or budget (e.g. 'is 2000 php enough for a week in philippines')...">
+                    <button type="button" onclick="searchFact()">VERIFY ↗</button>
+                    <button type="button" id="clear-btn" class="btn-clear" style="display: none;" onclick="resetUI()">RESET [X]</button>
                 </div>
+            </form>
+            <!-- Quick Test Pills -->
+            <div class="quick-prompts">
+                <span class="mono-label">TRY:</span>
+                <button class="prompt-chip" onclick="runQuickQuery('Is 2000 PHP enough to live for a week in Philippines?')">₱2,000/wk in PH?</button>
+                <button class="prompt-chip" onclick="runQuickQuery('Is 25000 PHP enough for a month in Metro Manila?')">₱25k/mo Manila?</button>
+                <button class="prompt-chip" onclick="runQuickQuery('Does Bitcoin have a maximum supply of 21 million?')">Bitcoin 21M Cap?</button>
+                <button class="prompt-chip" onclick="runQuickQuery('Do humans only use 10% of their brain?')">10% Brain Myth?</button>
             </div>
         </section>
 
-        <section id="sources" class="sources-section">
-            <h3>Sources</h3>
+        <!-- ==========================================
+             SEARCH RESULTS & AI ANALYSIS (HIDDEN BY DEFAULT)
+             ========================================== -->
+        <section id="results" class="content-block" style="display: none;"></section>
+        <section id="chat-results" class="content-block" style="display: none;"></section>
+        <section id="sources" class="content-block" style="display: none;">
+            <div class="section-header-bar">
+                <h3 class="section-title">SOURCES & DEEP-DIVE VECTORS</h3>
+                <span class="mono-tag">[INDEXED LINKS]</span>
+            </div>
             <ul id="sources-list"></ul>
         </section>
 
-        <!-- Bottom Ad Container -->
-        <div class="ad-container-horizontal">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-4319521186601086"
-                 data-ad-slot="ADD_YOUR_AD_SLOT_HERE"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
+        <!-- ==========================================
+             MULTI-SECTOR LIVE NEWS FEED
+             ========================================== -->
+        <section id="trending-news" class="content-block">
+            <div class="section-header-bar">
+                <h3 class="section-title">02 // MULTI-SECTOR INTELLIGENCE STREAM</h3>
+                <span class="mono-tag" id="news-status-tag">[LIVE STREAM]</span>
+            </div>
+            
+            <!-- Category Filter Tabs -->
+            <div class="category-tabs" id="news-tabs">
+                <button class="tab-btn active" onclick="switchNewsCategory('all', this)">ALL SECTORS</button>
+                <button class="tab-btn" onclick="switchNewsCategory('crypto', this)">CRYPTO & WEB3</button>
+                <button class="tab-btn" onclick="switchNewsCategory('stocks', this)">STOCKS & FINANCE</button>
+                <button class="tab-btn" onclick="switchNewsCategory('gov', this)">PH & GOV</button>
+                <button class="tab-btn" onclick="switchNewsCategory('sports', this)">SPORTS</button>
+                <button class="tab-btn" onclick="switchNewsCategory('tech', this)">SCIENCE & TRIVIA</button>
+            </div>
+
+            <div id="news-grid" class="news-carousel">
+                <p class="mono-text">SYNCHRONIZING SECTOR FEEDS...</p>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             DYNAMIC TRIVIA
+             ========================================== -->
+        <section id="pre-search-trivia" class="content-block">
+            <div class="section-header-bar">
+                <h3 class="section-title">03 // VERIFIED FACT DISPATCH</h3>
+                <button class="mini-action-btn" onclick="fetchLiveTrivia()">NEXT FACT ↻</button>
+            </div>
+            <div id="initial-trivia-content" class="brutalist-card corner-ticks">
+                <p id="live-trivia-text" class="mono-text">INITIALIZING FACT STREAM...</p>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             MINI-GAME: SPOT THE HOAX
+             ========================================== -->
+        <section id="interactive-section" class="content-block">
+            <div class="game-board">
+                <div class="game-header">
+                    <div>
+                        <span class="mono-tag">[TRAINING MODULE // 04]</span>
+                        <h3>RAPID VERIFICATION: FACT OR HOAX?</h3>
+                    </div>
+                    <div class="score-box">
+                        <span id="game-streak" class="mono-text">STREAK: 0</span>
+                        <span id="game-score" class="mono-text">SCORE: 0</span>
+                    </div>
+                </div>
+                <div class="game-card" id="game-card">
+                    <p id="game-question">INITIATE SIMULATION TO TEST YOUR DISINFORMATION RADAR.</p>
+                </div>
+                <div class="game-controls">
+                    <button id="btn-fact" class="btn-outline" style="display:none;" onclick="playGame(false)">[✓] VERIFIED FACT</button>
+                    <button id="btn-start" class="btn-solid" onclick="startMiniGame()">INITIALIZE SIMULATION</button>
+                    <button id="btn-hoax" class="btn-outline" style="display:none;" onclick="playGame(true)">[✕] FABRICATED HOAX</button>
+                </div>
+                <p id="game-feedback" class="game-feedback mono-text"></p>
+            </div>
+        </section>
     </main>
+
+    <!-- ==========================================
+         SCRIPTS
+         ========================================== -->
     <script src="./js/functionability.js"></script>
 </body>
 </html>

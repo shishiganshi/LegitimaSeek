@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+
 body {
     margin: 0;
     padding: 0;
-    background-color: #000;
+    background-color: #0f172a; /* Matched to new app.html header */
     color: #fff;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     overflow: hidden;
 }
 
@@ -13,50 +15,48 @@ body {
     justify-content: center;
     align-items: center;
     animation: fadeIn 1s ease-in;
+    padding: 1rem;
 }
 
 .content-wrapper {
     text-align: center;
+    width: 100%;
 }
 
 .title-container {
     position: relative;
     display: inline-block;
+    max-width: 100%;
 }
 
 .title {
-    font-size: 6rem;
+    font-size: clamp(2rem, 8vw, 6rem);
     margin: 0;
-    letter-spacing: 8px;
-    font-family: 'Montserrat', sans-serif;
+    letter-spacing: clamp(2px, 1vw, 8px);
     font-weight: 700;
     color: #ffffff;
     position: relative;
+    word-break: break-word;
 }
 
 .dot {
     position: absolute;
-    width: 12px;
-    height: 12px;
-    background: #fff;
+    width: clamp(6px, 1.5vw, 12px);
+    height: clamp(6px, 1.5vw, 12px);
+    background: #3b82f6; /* Added a pop of color matching the new theme */
     border-radius: 50%;
     top: -20px;
     left: 0;
-    box-shadow: 0 0 10px rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
     animation: jumpingDot 12s ease-in-out infinite;
 }
 
 .description {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
     margin: 2rem 0;
     opacity: 0.8;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 300;
-    letter-spacing: 2px;
-}
-
-.loading-bar, .progress {
-    display: none;
+    letter-spacing: 1px;
 }
 
 .info {
@@ -68,42 +68,31 @@ body {
 }
 
 @keyframes jumpingDot {
-    0% { top: -20px; left: 0; }  /* L */
+    0% { top: -20px; left: 0; }  
     7% { top: -40px; left: 0; }
-    8.33% { top: -20px; left: calc(100% / 11 * 1); }  /* E */
-    
+    8.33% { top: -20px; left: calc(100% / 11 * 1); }  
     15.33% { top: -40px; left: calc(100% / 11 * 1); }
-    16.66% { top: -20px; left: calc(100% / 11 * 2); }  /* G */
-    
+    16.66% { top: -20px; left: calc(100% / 11 * 2); }  
     23.66% { top: -40px; left: calc(100% / 11 * 2); }
-    24.99% { top: -20px; left: calc(100% / 11 * 3); }  /* I */
-    
+    24.99% { top: -20px; left: calc(100% / 11 * 3); }  
     31.99% { top: -40px; left: calc(100% / 11 * 3); }
-    33.32% { top: -20px; left: calc(100% / 11 * 4); }  /* T */
-    
+    33.32% { top: -20px; left: calc(100% / 11 * 4); }  
     40.32% { top: -40px; left: calc(100% / 11 * 4); }
-    41.65% { top: -20px; left: calc(100% / 11 * 5); }  /* I */
-    
+    41.65% { top: -20px; left: calc(100% / 11 * 5); }  
     48.65% { top: -40px; left: calc(100% / 11 * 5); }
-    49.98% { top: -20px; left: calc(100% / 11 * 6); }  /* M */
-    
+    49.98% { top: -20px; left: calc(100% / 11 * 6); }  
     56.98% { top: -40px; left: calc(100% / 11 * 6); }
-    58.31% { top: -20px; left: calc(100% / 11 * 7); }  /* A */
-    
+    58.31% { top: -20px; left: calc(100% / 11 * 7); }  
     65.31% { top: -40px; left: calc(100% / 11 * 7); }
-    66.64% { top: -20px; left: calc(100% / 11 * 8); }  /* S */
-    
+    66.64% { top: -20px; left: calc(100% / 11 * 8); }  
     73.64% { top: -40px; left: calc(100% / 11 * 8); }
-    74.97% { top: -20px; left: calc(100% / 11 * 9); }  /* E */
-    
+    74.97% { top: -20px; left: calc(100% / 11 * 9); }  
     81.97% { top: -40px; left: calc(100% / 11 * 9); }
-    83.3% { top: -20px; left: calc(100% / 11 * 10); }  /* E */
-    
+    83.3% { top: -20px; left: calc(100% / 11 * 10); }  
     90.3% { top: -40px; left: calc(100% / 11 * 10); }
-    91.63% { top: -20px; left: 100%; }  /* K */
-    
+    91.63% { top: -20px; left: 100%; }  
     98.63% { top: -40px; left: 100%; }
-    100% { top: -20px; left: 0; }  /* Back to start */
+    100% { top: -20px; left: 0; } 
 }
 
 @keyframes fadeIn {
@@ -111,42 +100,7 @@ body {
     to { opacity: 1; }
 }
 
-/* Mobile Responsiveness */
-@media screen and (max-width: 768px) {
-    .title {
-        font-size: 3.5rem;
-        letter-spacing: 4px;
-    }
-
-    .description {
-        font-size: 1.2rem;
-        margin: 1.5rem 0;
-        padding: 0 20px;
-    }
-
-    .dot {
-        width: 8px;
-        height: 8px;
-    }
-
-    .info {
-        gap: 1rem;
-        font-size: 0.8rem;
-    }
-}
-
-/* Small phones */
 @media screen and (max-width: 480px) {
-    .title {
-        font-size: 2.8rem;
-        letter-spacing: 3px;
-    }
-
-    .description {
-        font-size: 1rem;
-        margin: 1rem 0;
-    }
-
     .info {
         flex-direction: column;
         gap: 0.5rem;
