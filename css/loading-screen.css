@@ -1,98 +1,112 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+/* ==========================================
+   VARIABLES & BASE STYLING
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
 
-body {
+:root {
+    --bg-color: #0a0a0a;
+    --card-bg: #121212;
+    --text-color: #f4f4f0;
+    --grey-dark: #737373;
+    --border-thick: 3px solid var(--text-color);
+    --hard-shadow: 6px 6px 0px rgba(255, 255, 255, 0.2);
+}
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #0f172a; /* Matched to new app.html header */
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'JetBrains Mono', monospace;
     overflow: hidden;
 }
 
+/* ==========================================
+   LOADING SCREEN WRAPPER
+   ========================================== */
 .loading-container {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fadeIn 1s ease-in;
+    animation: fadeIn 0.3s ease-in;
     padding: 1rem;
 }
 
 .content-wrapper {
     text-align: center;
+    border: var(--border-thick);
+    padding: 3rem 4rem;
+    background: var(--card-bg);
+    box-shadow: var(--hard-shadow);
+    max-width: 650px;
     width: 100%;
 }
 
+/* ==========================================
+   TITLE & BLINKING CURSOR
+   ========================================== */
 .title-container {
     position: relative;
     display: inline-block;
-    max-width: 100%;
+    margin-bottom: 1rem;
 }
 
 .title {
-    font-size: clamp(2rem, 8vw, 6rem);
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
     margin: 0;
-    letter-spacing: clamp(2px, 1vw, 8px);
-    font-weight: 700;
-    color: #ffffff;
-    position: relative;
-    word-break: break-word;
+    letter-spacing: -2px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-color);
 }
 
 .dot {
-    position: absolute;
-    width: clamp(6px, 1.5vw, 12px);
-    height: clamp(6px, 1.5vw, 12px);
-    background: #3b82f6; /* Added a pop of color matching the new theme */
-    border-radius: 50%;
-    top: -20px;
-    left: 0;
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
-    animation: jumpingDot 12s ease-in-out infinite;
+    display: inline-block;
+    width: 14px;
+    height: 22px;
+    background: var(--text-color);
+    vertical-align: middle;
+    margin-left: 4px;
+    animation: blink 1s step-end infinite;
 }
 
+/* ==========================================
+   DESCRIPTION & FOOTER INFO
+   ========================================== */
 .description {
-    font-size: clamp(1rem, 3vw, 1.5rem);
-    margin: 2rem 0;
-    opacity: 0.8;
-    font-weight: 300;
+    font-size: 0.85rem;
+    margin: 1.5rem 0 2.5rem 0;
+    text-transform: uppercase;
     letter-spacing: 1px;
+    color: #a3a3a3;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding: 0.75rem 0;
+}
+
+.loading-bar, .progress {
+    display: none;
 }
 
 .info {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    font-size: 0.9rem;
-    opacity: 0.6;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    color: var(--grey-dark);
+    letter-spacing: 1px;
 }
 
-@keyframes jumpingDot {
-    0% { top: -20px; left: 0; }  
-    7% { top: -40px; left: 0; }
-    8.33% { top: -20px; left: calc(100% / 11 * 1); }  
-    15.33% { top: -40px; left: calc(100% / 11 * 1); }
-    16.66% { top: -20px; left: calc(100% / 11 * 2); }  
-    23.66% { top: -40px; left: calc(100% / 11 * 2); }
-    24.99% { top: -20px; left: calc(100% / 11 * 3); }  
-    31.99% { top: -40px; left: calc(100% / 11 * 3); }
-    33.32% { top: -20px; left: calc(100% / 11 * 4); }  
-    40.32% { top: -40px; left: calc(100% / 11 * 4); }
-    41.65% { top: -20px; left: calc(100% / 11 * 5); }  
-    48.65% { top: -40px; left: calc(100% / 11 * 5); }
-    49.98% { top: -20px; left: calc(100% / 11 * 6); }  
-    56.98% { top: -40px; left: calc(100% / 11 * 6); }
-    58.31% { top: -20px; left: calc(100% / 11 * 7); }  
-    65.31% { top: -40px; left: calc(100% / 11 * 7); }
-    66.64% { top: -20px; left: calc(100% / 11 * 8); }  
-    73.64% { top: -40px; left: calc(100% / 11 * 8); }
-    74.97% { top: -20px; left: calc(100% / 11 * 9); }  
-    81.97% { top: -40px; left: calc(100% / 11 * 9); }
-    83.3% { top: -20px; left: calc(100% / 11 * 10); }  
-    90.3% { top: -40px; left: calc(100% / 11 * 10); }
-    91.63% { top: -20px; left: 100%; }  
-    98.63% { top: -40px; left: 100%; }
-    100% { top: -20px; left: 0; } 
+/* ==========================================
+   ANIMATIONS & RESPONSIVENESS
+   ========================================== */
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
 @keyframes fadeIn {
@@ -100,9 +114,11 @@ body {
     to { opacity: 1; }
 }
 
-@media screen and (max-width: 480px) {
-    .info {
-        flex-direction: column;
-        gap: 0.5rem;
+@media screen and (max-width: 768px) {
+    .content-wrapper {
+        padding: 2rem 1.25rem;
+    }
+    .title {
+        font-size: 2.2rem;
     }
 }
